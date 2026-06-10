@@ -1,1 +1,2 @@
-# mephi-session-project-2026
+Выполнено на Fedora Server
+на команде номер 108 сделал сохранение и потом загрузку history, так как первключался на mephi-admin чтобы сделать команду echo "Hello from Student: 368655" | tee /data/mephi-web/index.html, после перевключения на пользователя alex история была чистой, поэтому сделал загрузку history и в файле project_history.txt добавился еще один ряд номеров команд  
