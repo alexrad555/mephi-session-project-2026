@@ -1,0 +1,117 @@
+    1  history -w
+    2  history -r ~/project_history.txt
+    3      1  history -w
+    4      2  sudo nmcli
+    5      3  sudo nmcli connection modify "Wired connection 1" ipv4.addresses 192.168.1.100/24
+    6      4  sudo nmcli connection modify "Wired connection 1" ipv4.gateway 192.168.1.1
+    7      5  sudo nmcli connection modify "Wired connection 1" ipv4.dns "8.8.8.8"
+    8      6  sudo nmcli connection modify "Wired connection 1" ipv4.method manual
+    9      7  sudo nmcli connection modify "Wired connection 1"
+   10      8  sudo nmcli connection up "Wired connection 1"
+   11      9  sudo nmcli
+   12     10  sudo hostnamectl set-hostname mephi-2026.domain.local
+   13     11  history
+   14     12  ping -c 4 192.168.1.1
+   15     13  ping -c 4 8.8.8.8
+   16     14  history
+   17     15  echo -e 'IP Route\n\' >> /tmp/network_check.txt
+   18     16  cat /tmp/network_check.txt 
+   19     17  echo -e 'IP Route\n\n' >> /tmp/network_check.txt
+   20     18  cat /tmp/network_check.txt 
+   21     19  echo -e 'IP Route\n\n' > /tmp/network_check.txt
+   22     20  cat /tmp/network_check.txt 
+   23     21  ip route >> /tmp/network_check.txt 
+   24     22  ping -c 4 192.168.1.1 >> /tmp/network_check.txt 
+   25     23  ping -c 4 8.8.8.8 >> /tmp/network_check.txt 
+   26     24  cat /tmp/network_check.txt 
+   27     25  sudo dnf update
+   28     26  sudo dnf install -y nginx tcpdump libcap-ng-utils
+   29     27  cd /tmp
+   30     28  dnf download tcpdump
+   31     29  ls
+   32     30  sudo rpm -i tcpdump-4.99.6-3.fc44.x86_64.rpm 
+   33     31  sudo rpm -i --replacepkgs tcpdump-4.99.6-3.fc44.x86_64.rpm 
+   34     32  sudo rpm -iv --replacepkgs tcpdump-4.99.6-3.fc44.x86_64.rpm 
+   35     33  ls dev
+   36     34  ls /dev
+   37     35  sudo fdisk /dev/sdb
+   38     36  sudo fdisk -l
+   39     37  sudo fdisk /dev/sdb
+   40     38  sudo mkfs.ext4 -L MEPHI_DATA /dev/sdb1
+   41     39  history
+   42     40  mkdir -p /data/mephi-web
+   43     41  sudo mkdir -p /data/mephi-web
+   44     42  echo "LABEL=MEPHI_DATA /data/mephi-web ext4 defaults 0 2" | sudo tee -a /etc/fstab
+   45     43  sudo mount -a
+   46     44  systemctl daemon-reload
+   47     45  sudo mount -a
+   48     46  sudo mount
+   49     47  sudo systemctl start nginx
+   50     48  sudo systemctl enable nginx
+   51     49  sudo systemctl status nginx
+   52     50  sudo journalctl -u nginx --since "5 minutes ago" >> /tmp/nginx_recent_logs.txt
+   53     51  cat /tmp/nginx_recent_logs.txt
+   54     52  sudo systemctl restart nginx
+   55     53  sudo journalctl -u nginx --since "5 minutes ago" >> /tmp/nginx_recent_logs.txt
+   56     54  cat /tmp/nginx_recent_logs.txt
+   57     55  history
+   58     56  sudo useradd mephi-admin
+   59     57  sudo groupadd mephi-devs
+   60     58  sudo usermod -aG mephi-devs mephi-admin
+   61     59  sudo chown mephi-admin:mephi-devs /data/mephi-web
+   62     60  sudo chmod 2775 /data/mephi-web
+   63     61  ls -ld /data/mephi-web
+   64     62  echo "mephi-admin:P@ss0rd2026" | sudo chpasswd
+   65     63  history > ~/project_history.txt
+   66     64  cat ~/project_history.txt
+   67     65  history
+   68     66  getenforce
+   69     67  sudo semanage fcontext -a -t httpd_sys_content_t "/data/mephi-web(/.*)?"
+   70     68  sudo restorecon -R /data/mephi-web
+   71     69  ls -Zd /data/mep
+   72     70  ls -Zd /data/mephi-web/
+   73     71  cat /etc/nginx/nginx.conf
+   74     72  sudo chmod -s /usr/sbin/tcpdump
+   75     73  history
+   76     74  history > ~/project_history.txt
+   77     75  cat ~/project_history.txt
+   78     76  sudo setcap 'cap_net_raw,cap_net_admin=+ep' /usr/sbin/tcpdump
+   79     77  getcap /usr/sbin/tcpdump
+   80     78  sudo -u mephi-admin tcpdump --help
+   81     79  echo "root" | sudo tee /etc/ssh/denied_users
+   82     80  cat /etc/ssh/denied_users
+   83     81  echo "root" | sudo tee /etc/login/denied_users
+   84     82  sudo nano /etc/pam.d/login
+   85     83  sudo dnf install nano
+   86     84  ping mirrors.fedoraproject.org -c 3
+   87     85  cat /etc/resolv.conf
+   88     86  sudo nmcli
+   89     87  ping -c 4 8.8.8.8
+   90     88  ping -c 4 192.168.1.1
+   91     89  ping -c 4 8.8.8.8
+   92     90  ping -c 4 192.168.1.1
+   93     91  ping -c 4 8.8.8.8
+   94     92  sudo dnf install nano
+   95     93  ping -c 4 8.8.8.8
+   96     94  ping -c 192.168.1.1
+   97     95  ping -c 4 192.168.1.1
+   98     96  ping -c 4 8.8.8.8
+   99     97  ping -c 4 192.168.1.1
+  100     98  ping -c 4 8.8.8.8
+  101     99  sudo dnf install nano
+  102    100  history
+  103    101  history > ~/project_history.txt
+  104    102  history
+  105    103  mkdir /etc/login
+  106    104  sudo mkdir /etc/login
+  107    105  sudo nano /etc/pam.d/login
+  108    106  sudo nano /etc/pam.d/sshd
+  109    107  history
+  110    108  history > ~/project_history.txt
+  111  sudo nano /etc/nginx/nginx.conf
+  112  sudo nginx -t
+  113  sudo systemctl restart nginx
+  114  sudo systemctl status nginx
+  115  su - mephi-admin
+  116  echo "mephi-admin:P@ssw0rd2026" | sudo chpasswd
+  117  history > ~/project_history.txt
